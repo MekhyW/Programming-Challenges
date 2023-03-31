@@ -11,9 +11,11 @@ int particiona(int v[], int l, int r) {
             }
             p++;
         }
+        printf("[ ");
         for (int i = 0; i <= r; i++) {
             printf("%d ", v[i]);
         }
+        printf("] p=%d", p);
         printf("\n");
     }
 

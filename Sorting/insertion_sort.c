@@ -7,7 +7,7 @@ void insertion_sort(int v[], int n) {
 
         int j = i;
         while (j > 0 && v[j - 1] > temp) {
-            v[j] = v[j - 1];
+            troca(v, j, j - 1);
             j--;
         }
 

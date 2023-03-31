@@ -20,10 +20,11 @@ void combina(int v[], int temp[], int l, int m, int r) {
             temp[k] = v[i];
             i++;
         }
+        printf("[ ");
         for (int a = 0; a <= r; a++) {
             printf("%d ", temp[a]);
         }
-        //printf("i=%d, j=%d", i, j);
+        printf("] i=%d, j=%d", i, j);
         printf("\n");
     }
 
@@ -48,7 +49,7 @@ void merge_sort(int v[], int n) {
 }
 
 int main() {
-    int v[] = { 1, 3, 5, 4, 6, 8 };
+    int v[] = { 1, 2, 6, 3, 4, 5 };
     int n = 6;
 
     merge_sort(v, n);
