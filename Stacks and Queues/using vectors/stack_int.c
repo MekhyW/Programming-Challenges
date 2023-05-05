@@ -36,7 +36,7 @@ void stack_int_push(stack_int *s, int value) {
     s->size++;
 }
 
-int stack_int_pop(stack_int *s, int index=0) {
+int stack_int_pop(stack_int *s) {
     s->size--;
     return s->data[s->size];
 }
