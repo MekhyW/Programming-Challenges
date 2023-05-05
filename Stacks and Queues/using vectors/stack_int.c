@@ -36,7 +36,28 @@ void stack_int_push(stack_int *s, int value) {
     s->size++;
 }
 
+void stack_int_genpush(stack_int *s, int value, int index) {
+    int i = s->size;
+    while (i > s->size - index) {
+        s->data[i] = s->data[i - 1];
+        i--;
+    }
+    s->data[i] = value;
+    s->size++;
+}
+
 int stack_int_pop(stack_int *s) {
     s->size--;
     return s->data[s->size];
+}
+
+int stack_int_genpop(stack_int *s, int index) {
+    int i = index;
+    int value = s->data[i];
+    while (i < s->size - 1) {
+        s->data[i] = s->data[i + 1];
+        i++;
+    }
+    s->size--;
+    return value;
 }

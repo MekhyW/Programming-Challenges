@@ -41,8 +41,28 @@ void queue_int_put(queue_int *q, int value) {
     q->size++;
 }
 
+void queue_int_genput(queue_int *q, int value, int index) {
+    int i = q->end;
+    while (i != (q->end - index) % q->capacity) {
+        int prev = (i - 1) % q->capacity;
+        q->data[i] = q->data[prev];
+        i = prev;
+    }
+    q->data[i] = value;
+    q->end = (q->end + 1) % q->capacity;
+    q->size++;
+}
+
 int queue_int_get(queue_int *q) {
     q->size--;
     q->begin = (q->begin + 1) % q->capacity;
     return q->data[q->begin];
+}
+
+int queue_int_genget(queue_int *q, int index) {
+    int i = q->begin;
+    while (i != (q->begin + index) % q->capacity) {
+        i = (i + 1) % q->capacity;
+    }
+    return q->data[i];
 }
